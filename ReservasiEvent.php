@@ -31,12 +31,13 @@ class ReservasiEvent extends Reservasi
 
     public function hitungTotalBiaya()
     {
-        return 0;
+        return ($this->durasiJam * $this->tarifDasarPerJam) + $this->biayaTransportasiTim;
     }
 
     public function tampilkanSpesifikasiPaket()
     {
-        return "";
+        return "Paket Event | Lokasi: " . $this->namaLokasiLuar .
+               " | Transportasi: Rp " . number_format($this->biayaTransportasiTim, 0, ',', '.');
     }
 
     public function getDataEvent($koneksi)
@@ -47,3 +48,5 @@ class ReservasiEvent extends Reservasi
         return mysqli_query($koneksi, $query);
     }
 }
+
+?>

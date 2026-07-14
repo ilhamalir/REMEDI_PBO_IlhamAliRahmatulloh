@@ -31,12 +31,13 @@ class ReservasiPremium extends Reservasi
 
     public function hitungTotalBiaya()
     {
-        return 0;
+        return ($this->durasiJam * $this->tarifDasarPerJam) * 1.20;
     }
 
     public function tampilkanSpesifikasiPaket()
     {
-        return "";
+        return "Paket Premium | Talent: " . $this->kuotaTalentOrang .
+               " orang | Makeup: " . $this->layananMakeup;
     }
 
     public function getDataPremium($koneksi)
@@ -47,3 +48,5 @@ class ReservasiPremium extends Reservasi
         return mysqli_query($koneksi, $query);
     }
 }
+
+?>

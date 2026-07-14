@@ -31,12 +31,13 @@ class ReservasiReguler extends Reservasi
 
     public function hitungTotalBiaya()
     {
-        return 0;
+        return ($this->durasiJam * $this->tarifDasarPerJam) + 50000;
     }
 
     public function tampilkanSpesifikasiPaket()
     {
-        return "";
+        return "Paket Reguler | Background: " . $this->tipeBackground .
+               " | Cetak Foto: " . $this->cetakFotoLembar . " lembar";
     }
 
     public function getDataReguler($koneksi)
@@ -47,3 +48,5 @@ class ReservasiReguler extends Reservasi
         return mysqli_query($koneksi, $query);
     }
 }
+
+?>
